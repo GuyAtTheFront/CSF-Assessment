@@ -1,0 +1,37 @@
+<p>movie-list works!</p>
+
+<h2>Search Result</h2> <button type="button" [routerLink]="['..']">Back</button>
+
+<div *ngIf="reviews.length == 1 && !reviews[0].title"> 
+    <p> fetching data ... </p>
+</div>
+
+<div *ngIf="reviews.length == 0"> 
+    <p> Your search produced no result </p>
+</div>
+
+<div *ngIf="reviews.length > 0 && reviews[0].title">
+    <div *ngFor="let review of reviews; let idx=index" style="border: 1px solid black">
+
+        <div *ngIf="review.image">
+            <img [src]="review.image">
+        </div>
+        <div *ngIf="!review.image">
+            <img src="/assets/placeholder.jpg">
+        </div>
+
+        <div>
+            <h3><a [href]="review.reviewURL" target=”_blank”><u>{{review.title + ' (rating:' + review.rating + ')'}}</u></a></h3>
+            <p><b>{{ review.headline }}</b></p>
+            <p>Summary:</p>
+            <p>{{ review.summary }}</p>
+            <br>
+            <p>{{ 'Comments:' + review.commentCount }}</p>
+        </div>
+        <div>
+            <button type="button" 
+            [routerLink]="['/comment']" 
+            [queryParams]="{movieName: review.title}">Comment</button>
+        </div>
+    </div>
+</div>

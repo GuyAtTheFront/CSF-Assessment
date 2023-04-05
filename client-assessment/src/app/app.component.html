@@ -1,0 +1,5 @@
+<button type="button" [routerLink]="['/']">View 0</button>
+<button type="button" [routerLink]="['/', 'list']" [queryParams]="{movieName: 'godfather'}">View 1</button>
+<button type="button" [routerLink]="['/', 'comment']" [queryParams]="{movieName: 'godfather'}">View 2</button>
+
+<router-outlet></router-outlet>

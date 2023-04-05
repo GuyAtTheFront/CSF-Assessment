@@ -1,0 +1,14 @@
+<p>movie-search works!</p>
+
+<h2>Search Movie Reviews</h2>
+<div>
+    <form [formGroup]="movieSearchForm" (ngSubmit)="processForm()">
+        <table>
+            <tr>
+                <td><label>Movie name: </label></td>
+                <td><input type="text" formControlName="movieName"></td>
+            </tr>
+        </table>
+        <button type="submit" [disabled]="movieSearchForm.invalid">Search</button>
+    </form>
+</div>

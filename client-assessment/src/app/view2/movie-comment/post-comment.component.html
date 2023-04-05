@@ -1,0 +1,26 @@
+<p>movie-comment works!</p>
+
+<div>
+    <h2>Post comment for {{ movieName }}</h2>
+
+    <form [formGroup]="commentForm" (ngSubmit)="processForm()">
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td><input type="text" formControlName="posterName"></td>
+            </tr>
+            <tr>
+                <td>Rating: </td>
+                <td><input type="number" min="1" max="5" formControlName="rating"></td>
+            </tr>
+            <tr>
+                Comment:
+                <td colspan="2">
+                    <textarea  cols="30" rows="10" formControlName="comment"></textarea>
+              </td>
+            </tr>
+            <button type="button" (click)="onBackClicked()" >Back</button>
+            <button type="submit" [disabled]="commentForm.invalid">Post</button>
+        </table>
+    </form>
+</div>
